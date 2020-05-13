@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,11 +11,18 @@
     xmlns:bind="http://schemas.android.com/tools"
     tools:context=".view.LoginActivity">
 
+    <data>
+        <variable
+            android:name= "userModel"
+            android:type= "com.example.loginregistrationapplication.viewmodel.LoginViewModel"/>
+    </data>
+
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Email"
+                android:text="@={userModel.email}"
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="Enter Password"
+                android:text="@={userModel.password}"
                 app:layout_goneMarginTop="8dp"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -44,8 +53,9 @@
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="Login"
+                android:onClick="@{() -> userModel.onLoginClick()}"
                 android:id="@+id/buttonlogin"
-                app:layout_constraintTop_toBottomOf="@id/etPassword"/>
+                app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

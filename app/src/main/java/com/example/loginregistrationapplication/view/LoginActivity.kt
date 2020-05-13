@@ -14,9 +14,5 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
-
-    @BindingAdapter("toastMessage")
-    fun runMe(view: View, message: String?) {
-        if (message != null) Toast.makeText(view.getContext(), message, Toast.LENGTH_SHORT).show()
-    }
+    
 }
