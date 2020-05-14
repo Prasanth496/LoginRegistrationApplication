@@ -5,8 +5,8 @@ import android.util.Patterns
 
 
 class User{
-    private lateinit var email: String
-    private lateinit var password: String
+    lateinit var email: String
+    lateinit var password: String
 
     fun getEmail() : String{
         return email
