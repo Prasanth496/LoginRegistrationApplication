@@ -1,10 +1,12 @@
 package com.example.loginregistrationapplication
 
 import android.content.ContentValues
+import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import com.example.loginregistrationapplication.model.User
 
-class DatabaseHelper {
+class DatabaseHelper : SQLiteOpenHelper(Context,DATABASE_NAME, null, DATABASE_VERSION) {
 
     private val readableDatabase: Any ?= null
     private val writableDatabase: Any ?= null
@@ -17,11 +19,11 @@ class DatabaseHelper {
     private val DROP_USER_TABLE =
         "DROP TABLE IF EXISTS $TABLE_USER"
 
-    fun onCreate(db: SQLiteDatabase) {
+    override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(CREATE_USER_TABLE)
     }
 
-    fun onUpgrade(
+    override fun onUpgrade(
         db: SQLiteDatabase,
         oldVersion: Int,
         newVersion: Int
@@ -102,7 +104,6 @@ class DatabaseHelper {
         fun authenticate(user: User) : User? {
             user.email
             user.password
-
             return user
         }
 
