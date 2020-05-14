@@ -8,11 +8,13 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.example.loginregistrationapplication.R
 import com.example.loginregistrationapplication.model.User
 import com.example.loginregistrationapplication.viewmodel.LoginViewModel
 import com.example.loginregistrationapplication.viewmodel.LoginViewModelImpl
+import kotlinx.android.synthetic.main.activity_login.view.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -23,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         var binding : ViewDataBinding? = DataBindingUtil.setContentView<ViewDataBinding>(this,R.layout.activity_login)
         var loginViewModel : LoginViewModel = ViewModelProviders.of(this, LoginViewModelImpl(this, User())).get(LoginViewModel.class)
+                binding.setUserModel(LoginViewModel)
 
     }
 

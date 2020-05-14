@@ -1,5 +1,8 @@
 package com.example.loginregistrationapplication.model
 
+import android.text.TextUtils
+import android.util.Patterns
+
 
 class User{
     private lateinit var email: String
@@ -19,6 +22,14 @@ class User{
 
     fun setPassword(password : String){
         this.password = password
+    }
+
+    fun isValid() : Boolean{
+        if(this.email != null && TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            return true
+        }
+        else
+            return false
     }
 
 

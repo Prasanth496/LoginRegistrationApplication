@@ -12,7 +12,7 @@ class LoginViewModelImpl(loginActivity: LoginActivity, user: User) : ViewModelPr
     private lateinit var user : User
     private lateinit var context : Context
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel?> create(modelClass: Class<T>) : T {
         return T
     }
 }

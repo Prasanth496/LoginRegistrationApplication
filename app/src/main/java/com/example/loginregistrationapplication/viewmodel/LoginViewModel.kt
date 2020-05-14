@@ -15,6 +15,11 @@ class LoginViewModel(private var context: Context,  var user: User) : ViewModel(
         email.getValue()?.let { user.setEmail(it) }
         password.getValue()?.let { user.setPassword(it) }
 
-       Toast.makeText(context,user.getEmail(),Toast.LENGTH_LONG).show()
+        if(user.isValid()) {
+            Toast.makeText(context, user.getEmail(), Toast.LENGTH_LONG).show()
+        }
+            else{
+                Toast.makeText(context, user.getEmail(), Toast.LENGTH_LONG).show()
+            }
+        }
     }
-}
